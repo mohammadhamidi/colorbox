@@ -22,6 +22,7 @@
 		initialWidth: "600",
 		innerWidth: false,
 		maxWidth: false,
+		minWidth: false,
 		height: false,
 		initialHeight: "450",
 		innerHeight: false,
@@ -937,6 +938,10 @@
 		if (settings.get('maxWidth')) {
 			settings.mw = setSize(settings.get('maxWidth'), 'x') - loadedWidth - interfaceWidth;
 			settings.mw = settings.w && settings.w < settings.mw ? settings.w : settings.mw;
+		}
+		if (settings.get('minWidth')) {
+			settings.minw = setSize(settings.get('minWidth'), 'x');
+			settings.w = settings.w && settings.w > settings.minw ? settings.w : settings.minw;
 		}
 		if (settings.get('maxHeight')) {
 			settings.mh = setSize(settings.get('maxHeight'), 'y') - loadedHeight - interfaceHeight;
